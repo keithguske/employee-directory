@@ -1,0 +1,18 @@
+{
+  "name": "employee-directory",
+  "version": "1.0.0",
+  "description": "An employee directory web application that’s comprised of a front and back end built using modern tools.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Keith Guske",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.12"
+  },
+  "devDependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
