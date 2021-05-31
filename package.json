@@ -1,9 +1,13 @@
 {
   "name": "employee-directory",
   "version": "1.0.0",
+  "private": true,
   "description": "An employee directory web application that’s comprised of a front and back end built using modern tools.",
   "main": "server.js",
   "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "node start-client.js",
+    "server": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Keith Guske",
@@ -13,6 +17,7 @@
     "mongoose": "^5.12.12"
   },
   "devDependencies": {
+    "concurrently": "^6.2.0",
     "node-fetch": "^2.6.1"
   }
 }
