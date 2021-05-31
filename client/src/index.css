@@ -34,3 +34,34 @@ h1 {
 .department-select {
   min-width: 150px;
 }
+
+.content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.business-card {
+  display: grid;
+  grid-auto-columns: 2fr 8fr;
+  grid-auto-rows: 60px 34px 34px;
+}
+.business-card-avatar {
+  width: 128px !important;
+  height: 128px !important;
+  grid-column: 1;
+  grid-row: 1/4;
+}
+.business-card-name, .business-card-job, .business-card-location {
+  grid-column: 2;
+}
+
+.business-card-job {
+  margin-bottom: 0;
+}
+.business-card-location {
+  margin-top: 0
+}
+
+.compressed-search-accordion {
+  margin-bottom: 1em;
+}

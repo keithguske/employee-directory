@@ -45,6 +45,22 @@ app.get("/api/search", (req, res) => {
   });
 });
 
+app.get("/api/employee", (req, res) => {
+  let id = req.query.id;
+
+  id = (id) ? id : '';
+  employees.findById({
+    _id: id
+  }, function(err, result) {
+    if(err) {
+      console.log(err);
+      res.status(400).send({message: "Unknown employee"});
+    } else {
+      res.send(result);
+    }
+  });
+});
+
 app.listen(app.get("port"), () => {
   console.log(`Find the server at: http://localhost:${app.get("port")}/`); // eslint-disable-line no-console
 });

@@ -8,6 +8,8 @@ import {
 
 import AdvancedSearch from './AdvancedSearch.js';
 import SearchResults from './SearchResults.js';
+import Employee from './Employee.js';
+import CompressedAdvancedSearch from './CompressedAdvancedSearch.js';
 
 function App() {
   return (
@@ -20,6 +22,10 @@ function App() {
         </div>
 
         <Switch>
+          <Route path="/employee">  
+            <CompressedAdvancedSearch />
+            <Employee />
+          </Route>
           <Route path="/search">
             <h2>Search Results</h2>
             <AdvancedSearch />
