@@ -5,4 +5,8 @@
 
  # Setup
  1. node db/setupdb.js
+ 2. npm install
+ 3. cd client
+ 4. npm install
+ 5. cd ..
  2. npm start
