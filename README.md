@@ -9,4 +9,4 @@
  3. cd client
  4. npm install
  5. cd ..
- 2. npm start
+ 6. npm start
