@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Avatar } from '@material-ui/core';
+import { Avatar, Button } from '@material-ui/core';
+import { withSnackbar } from 'notistack';
 
 class Employee extends Component {
   constructor(props) {
@@ -25,6 +26,21 @@ class Employee extends Component {
     });
   }
 
+  handleDelete = () => {
+    const id = this.state.employee._id;
+
+    fetch("/api/delete?id=" + id).then((result) => result.json()).then((result) => {
+      console.log(result);
+
+      if(result.message) {
+        this.props.enqueueSnackbar('Failed to delete ' + this.state.employee.name);
+      }
+      else {
+        this.props.enqueueSnackbar('Successfully deleted ' + this.state.employee.name);
+      }
+    });
+  }
+
   render() {
     return (
       <div className="content">
@@ -34,9 +50,25 @@ class Employee extends Component {
           <p className="business-card-job">{this.state.employee.jobTitle}</p>
           <p className="business-card-location">{this.state.employee.location}</p>
         </div>
+        <Button 
+          className="action-button"
+          href={'/edit?id=' + this.state.employee._id}
+          variant="contained"  
+          color="primary"
+        >
+            Edit
+        </Button>
+        <Button
+          className="action-button"
+          onClick={this.handleDelete}
+          variant="contained"  
+          color="primary"
+        >
+          Delete
+        </Button>
       </div>
     );
   }
 }
 
-export default Employee;
+export default withSnackbar(Employee);

@@ -5,11 +5,13 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { Button } from '@material-ui/core';
 
 import AdvancedSearch from './AdvancedSearch.js';
 import SearchResults from './SearchResults.js';
 import Employee from './Employee.js';
 import CompressedAdvancedSearch from './CompressedAdvancedSearch.js';
+import CreateAndUpdate from './CreateAndUpdate.js';
 
 function App() {
   return (
@@ -22,6 +24,12 @@ function App() {
         </div>
 
         <Switch>
+         <Route path="/create">
+            <CreateAndUpdate />
+          </Route>
+          <Route path="/edit">
+            <CreateAndUpdate />
+          </Route>
           <Route path="/employee">  
             <CompressedAdvancedSearch />
             <Employee />
@@ -33,6 +41,14 @@ function App() {
           </Route>
           <Route path="/">
             <AdvancedSearch />
+            <Button 
+              className="action-button"
+              href="/create"
+              variant="contained"  
+              color="primary"
+            >
+              Create
+            </Button>
           </Route>
         </Switch>
       </div>

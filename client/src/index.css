@@ -17,6 +17,10 @@ code {
 h1 {
   text-align: center;
 }
+h2 {
+  max-width: 1000px;
+  margin: 0 auto;
+}
 .home-link {
   color: black;
   text-decoration: none;
@@ -61,7 +65,23 @@ h1 {
 .business-card-location {
   margin-top: 0
 }
+.action-button {
+  margin: 1em !important;
+}
 
 .compressed-search-accordion {
   margin-bottom: 1em;
+}
+
+.create-update-form > :not(.create-update-avatar):not(.hidden-field) {
+  display: block !important;
+  margin-top: 1em !important;
+}
+.create-update-avatar {
+  width: 128px !important;
+  height: 128px !important;
+  margin-top: 1em;
+}
+.hidden-field {
+  display: none !important;
 }
