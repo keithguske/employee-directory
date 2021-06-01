@@ -27,9 +27,7 @@ app.get("/api/search", (req, res) => {
   department = (department) ? department : '';
   jobTitle = (jobTitle) ? jobTitle : '';
   location = (location) ? location : '';
-
-  console.log(name, department, jobTitle, location);
-
+  
   employees.find({
     name: {$regex: name},
     department: {$regex: department},
@@ -80,7 +78,7 @@ app.post("/api/createandupdate", (req, res) => {
       department: department,
       jobTitle: jobTitle,
       location: location
-    }, function(err, result) {
+    }, { new: true }, function(err, result) {
       if(err) {
         console.log(err);
         res.status(400).send({message: "Unknown employee"});
@@ -90,12 +88,13 @@ app.post("/api/createandupdate", (req, res) => {
     });
   }
   else {
-    employees.create({
+    employee = {
       name: name,
       department: department,
       jobTitle: jobTitle,
       location: location
-    }, function(err, result) {
+    };
+    employees.create(employee, function(err, result) {
       if(err) {
         console.log(err);
         res.status(500).send({message: "Server error"});
@@ -125,3 +124,5 @@ app.get("/api/delete", (req, res) => {
 app.listen(app.get("port"), () => {
   console.log(`Find the server at: http://localhost:${app.get("port")}/`); // eslint-disable-line no-console
 });
+
+module.exports = app;
