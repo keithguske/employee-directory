@@ -65,7 +65,6 @@ class CreateAndUpdate extends Component {
   }
 
   handleSubmit = (event) => {
-    const url = "/api/createandupdate";
     const data = new URLSearchParams(new FormData(event.target));
     console.log(data, event.target);
     fetch("/api/createandupdate", {
